@@ -23,21 +23,25 @@ var db = require("../models/");
 			});
 		});
 	});
-
-	router.get("/api/generatequestions", function(req, res){
-		var parseData;
-		fs.readFile('./public/assets/js/questions.json', 'utf8', function(err, data){
-			if(err) console.log (err);
-			parseData = JSON.parse(data);
-			parseData.anxiety.forEach(function(element){
-				db.Question.create({
-					challenge: element.question,
-					difficulty: element.difficulty
-				});
-			});
-		});
-		res.redirect("/");
-	});
+	
+router.get("/api/generatequestions", function(req, res) {
+  var hbsObject = {};
+  db.Question.sequelize.query('Select * from Questions WHERE id NOT IN (SELECT id FROM activities)', {
+      type: db.Question.sequelize.QueryTypes.SELECT
+    })
+    .then(function(data) {
+      hbsObject.questions = data;
+      db.Activity.findAll({
+          where: db.Question.id = db.Activity.QuestionId,
+          include: [db.Question]
+        })
+        .then(function(data) {
+          hbsObject.completedQuestions = data;
+          hbsObject.userId = '1';
+          res.render("challenges", hbsObject);
+        });
+    });
+});
 
 //update question to completed
 router.post("/api/addactivity/:id", function(req, res){
