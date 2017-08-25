@@ -58,6 +58,7 @@ a:focus {
 .button-panel {
   background: white;
   padding: 30px 0;
+  height: 100px;
   z-index: 2;
   text-align: center;
 }
@@ -127,7 +128,23 @@ a:focus {
     text-align: center;
     font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
     color: white;
+/*    position: absolute;
+    right: 20px;*/
+    float: right;
+    margin-right: 5px;
+  }
 
+  .btn-challenge {
+  	background-color: #DC4A38;
+	border-color: #DC4A38;
+	width: 200px;
+	height: 50px;
+    font-size: 16px;
+    /*margin: 5px;*/
+    text-align: center;
+    font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+    color: white;
+    float: center;
   }
 
 .btn:hover {
@@ -145,3 +162,12 @@ a:focus {
 	width: 1165px;
 	height: 50%;
 }
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: purple;
+}
+
