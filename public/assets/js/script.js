@@ -12,3 +12,4 @@ function signOut() {
       console.log('User signed out.');
     });
   }
+
