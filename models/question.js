@@ -3,5 +3,12 @@ module.exports=function(sequelize, Datatypes){
 		challenge: Datatypes.STRING,
 		difficulty: Datatypes.INTEGER,
 	});
-return Question;
+Question.associate = function(models){
+	Question.hasMany(models.Activity, {
+			foreignKey: {
+				allowNull: false
+			}
+		});
+	};
+	return Question;
 };

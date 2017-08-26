@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List of Challenges</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Baloo+Bhaijaan|Open+Sans|Roboto" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="#" onclick="signOut();">Sign out</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    <!--enter code here  -->
+      <div class="row">
+        <div class="col-md-12">
+        <h2>Welcome! Ready to get started?</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+         <strong> Challenges completed</strong>
+         <ul class="list-group">
+          {{#each completedQuestions}}
+            <li class="list-group-item">
+              <bold>  {{this.id}}  {{this.Question.challenge}}</bold>
+            </li> <!--end of li grp item-->
+          {{/each}}
+         </ul><!-- end list group-->
+        </div>
+        <div class="col-md-6">
+        <strong>Uncompleted Challenges </strong>
+        <ul class="list-group">
+              {{#each questions}}  {{userId}}
+          <li class="list-group-item active">
+           {{this.id}} {{this.challenge}}
+            <form action="/api/addactivity/{{this.id}}" method="POST">
+              <input type="hidden" value="{{../userId}}" name="UserId">
+              <button type="submit" class="btn btn-warning" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Complete
+              </button>
+            </form>
+          </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+     </div>
+
+  </div>  <!-- end code here -->
+
+    <script src="assets/js/script.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="661202478921-fmitcrqkg5ej3htdj4bje2eenqetgvv2.apps.googleusercontent.com">
+</body>
+
+</html>

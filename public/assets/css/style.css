@@ -62,41 +62,11 @@ a:focus {
   z-index: 2;
   text-align: center;
 }
-/**  Navegation files
-*/
-.navbar-header {
-  width: 100%;
-  height: 25px;
-  color: white;
-}
-.navbar-inverse {
-	border: 0;
-	border-radius: 0;
-	margin-bottom: 0;
-}
-.navbar-right {
-  font-size: 18px;
-}
+/* challanges */
+.list-group-item .active {
+  padding: 0px;
 
-.navbar-inverse .navbar-nav>li>a {
-	color: white;
-	font-size: 20px;
 }
-
-.navbar-inverse .navbar-nav>li>a:hover {
-	color: #cb39cc
-}
-
-.navbar-inverse .navbar-brand {
-	color: white;
-	margin-left: 40px;
-	font-size: 40px;
-}
-
-.navbar-inverse {
-	border: none;
-}
-
 .promo {
   background: #f84545;
   color: white;
@@ -163,6 +133,7 @@ a:focus {
 	height: 50%;
 }
 
+<<<<<<< HEAD
 a {
 	color: white;
 }
@@ -171,3 +142,12 @@ a:hover {
 	color: purple;
 }
 
+=======
+.btn-warning {
+  margin-top: 20px;
+}
+
+.anxietyImg{
+	margin-top:15px;
+}
+>>>>>>> upstream/master

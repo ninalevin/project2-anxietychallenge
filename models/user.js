@@ -1,4 +1,3 @@
-var models = require("./");
 module.exports=function(sequelize, Datatypes){
 	var User = sequelize.define("User", {
 		name: Datatypes.STRING,
@@ -7,7 +6,12 @@ module.exports=function(sequelize, Datatypes){
 		imageURL: Datatypes.STRING,
 	});
 User.associate = function(models){
-	User.hasMany(models.Activity);
-	};
+	User.hasMany(models.Activity, {
+      onDelete: "cascade"
+    });
+  };
+
 return User;
 };
+
+// SELECT * FROM Questions INNER JOIN Activities ON Questions.id = Activities.questionId;
